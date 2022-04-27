@@ -36,4 +36,22 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template(:show)
     end
   end
+
+  describe 'GET #posts' do
+    before(:each) do
+      get '/users/999/posts'
+    end
+
+    it 'GET requests response status was correct' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'response body includes correct placeholder text' do
+      expect(response.body).to include('list pf posts')
+    end
+
+    it 'renders a correct template' do
+      expect(response).to render_template(:posts)
+    end
+  end
 end
