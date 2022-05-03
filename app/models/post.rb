@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   belongs_to :user
-  
+
   def update_counter(post_id)
     counts = Post.where(user_id: post_id).count
     user = User.find(post_id)
