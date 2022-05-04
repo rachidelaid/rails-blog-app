@@ -1,9 +1,19 @@
 class UsersController < ApplicationController
-  def index; end
+  def index
+    @users = User.all
+  end
 
-  def show; end
+  def show
+    User.find(params[:id])
+  end
 
-  def posts; end
+  def posts
+    @posts = Post.where(user_id: params[:user_id])
+    @user = User.find(params[:user_id])
+  end
 
-  def post; end
+  def post
+    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
 end
