@@ -1,1 +1,12 @@
-<h1>single post<h1>
+<section class='posts_container'>
+  <div class='post_card'>
+    <h5><%= @post.title %></h5>
+    <p><%= @post.text %></P>
+  </div>
+  <div class='comment_card'>
+    <% Comment.all.where(post_id: @post.id).each do |comment| %>
+      <% user = User.all.find(comment.author_id) %>
+      <p><b><%= user.name %>: </b><%= comment.text %></p>
+    <%end%>
+  </div>
+</section>
