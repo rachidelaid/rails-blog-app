@@ -8,12 +8,11 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @posts = Post.where(user_id: params[:user_id])
-    @user = User.find(params[:user_id])
+    @posts = Post.where(author_id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def post
     @post = Post.find(params[:id])
-    @user = User.find(params[:user_id])
   end
 end

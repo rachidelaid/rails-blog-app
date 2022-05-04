@@ -1,1 +1,29 @@
-<h1>list pf posts</h1>
+<section class='posts_container'>
+  <div class='user_card'>
+    <div class='user_avatar'>
+      <img src="<%= @user.photo %>" alt='User Avatar' />
+    </div>
+
+    <div class='user_details'>
+      <h1><%= @user.name %></h1>
+      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+
+  <div class='posts'>
+    <% @user.three_recent_post(@user.id).each do |post| %>
+      <div class='post_card'>
+        <h5><%= post.title %></h5>
+        <p><%= post.text %></P>
+      </div>
+      <div class='comment_card'>
+        <% Comment.all.where(post_id: post.id).each do |comment| %>
+          <% user = User.all.find(comment.author_id) %>
+          <p><b><%= user.name %>: </b><%= comment.text %></p>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+
+  <button type='button'>load more</button>
+</section>

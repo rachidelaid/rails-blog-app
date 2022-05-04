@@ -14,11 +14,14 @@
     <%= @user.bio %>
   </div>
 
-  <% @user.three_recent_post(@user.id).each do |post| %>
-    <div class='user_card'>
-      <h5><%= post.title %></h5>
-    </div>
-  <%end%>
+  <div class='posts'>
+    <% @user.three_recent_post(@user.id).each do |post| %>
+      <div class='post_card'>
+        <h5><%= post.title %></h5>
+        <p><%= post.text %></P>
+      </div>
+    <%end%>
+  </div>
 
   <a href="/users/<%= @user.id %>/posts"><button type='button'>see all posts</button></a>
 </section>
