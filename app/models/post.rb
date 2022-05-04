@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
-  has_many :comments, class_name: 'comment', foreign_key: 'author_id'
-  has_many :posts, class_name: 'post', foreign_key: 'author_id'
-  has_many :likes, class_name: 'like', foreign_key: 'author_id'
   belongs_to :author, class_name: 'User'
+  has_many :comments
+  has_many :likes
 
   private
 
