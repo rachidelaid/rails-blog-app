@@ -1,12 +1,13 @@
 class Post < ApplicationRecord
-  has_many :comments
-  has_many :likes
-  belongs_to :user
+  has_many :comments, class_name: 'comment', foreign_key: 'author_id'
+  has_many :posts, class_name: 'post', foreign_key: 'author_id'
+  has_many :likes, class_name: 'like', foreign_key: 'author_id'
+  belongs_to :author, class_name: 'User'
 
-  def update_counter(post_id)
-    counts = Post.where(user_id: post_id).count
-    user = User.find(post_id)
-    user.update(posts_counter: counts)
+  private
+
+  def update_counter
+    author.increment(:post_counter)
   end
 
   def five_recent_comment(post_id)
