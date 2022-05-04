@@ -1,9 +1,7 @@
-<section class='users_container'>
+<section class='container'>
   <% @users.each do |user| %>
     <div class='user_card'>
-      <div class='user_avatar'>
-        <img src="<%= user.photo %>" alt='User Avatar' />
-      </div>
+      <img src="<%= user.photo %>" alt='User Avatar' />
 
       <div class='user_details'>
         <a href="/users/<%= user.id %>"><h1><%= user.name %></h1></a>

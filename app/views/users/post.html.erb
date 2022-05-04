@@ -1,6 +1,9 @@
-<section class='posts_container'>
+<section class='container'>
   <div class='post_card'>
-    <h5><%= @post.title %></h5>
+    <div class='details'>
+      <h3><%= @post.title %> <p>by <%= User.all.find(@post.author_id).name %></p></h3>
+      <p>Comments: <%= @post.comments_counter||0 %>, Likes: <%= @post.likes_counter||0 %></p>
+    </div>
     <p><%= @post.text %></P>
   </div>
   <div class='comment_card'>

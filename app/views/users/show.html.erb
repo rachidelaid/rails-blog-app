@@ -1,8 +1,6 @@
-<section class='posts_container'>
+<section class='container'>
   <div class='user_card'>
-    <div class='user_avatar'>
-      <img src="<%= @user.photo %>" alt='User Avatar' />
-    </div>
+    <img src="<%= @user.photo %>" alt='User Avatar' />
 
     <div class='user_details'>
       <h1><%= @user.name %></h1>
@@ -11,17 +9,17 @@
   </div>
 
   <div class='bio'>
-    <%= @user.bio %>
+    <h3>Bio:</3>
+    <p><%= @user.bio %></p>
   </div>
 
-  <div class='posts'>
-    <% @user.three_recent_post(@user.id).each do |post| %>
-      <div class='post_card'>
-        <h5><%= post.title %></h5>
-        <p><%= post.text %></P>
-      </div>
-    <%end%>
-  </div>
+  <% @user.three_recent_post(@user.id).each do |post| %>
+    <div class='post_card'>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
+      <p><%= post.text %></P>
+      <span>Comments: <%= post.comments_counter||0 %>, Likes: <%= post.likes_counter||0 %></span>
+    </div>
+  <%end%>
 
   <a href="/users/<%= @user.id %>/posts"><button type='button'>see all posts</button></a>
 </section>
