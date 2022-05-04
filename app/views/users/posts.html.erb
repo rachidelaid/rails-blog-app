@@ -10,15 +10,17 @@
 
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>
-      <h5><%= post.title %></h5>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
       <p><%= post.text %></P>
     </div>
-    <div class='comment_card'>
-      <% Comment.all.where(post_id: post.id).each do |comment| %>
-        <% user = User.all.find(comment.author_id) %>
-        <p><b><%= user.name %>: </b><%= comment.text %></p>
-      <%end%>
-    </div>
+    <%if Comment.all.where(post_id: post.id).length != 0 %>
+      <div class='comment_card'>
+        <% Comment.all.where(post_id: post.id).each do |comment| %>
+          <% user = User.all.find(comment.author_id) %>
+          <p><b><%= user.name %>: </b><%= comment.text %></p>
+        <%end%>
+      </div>
+    <%end%>
   <%end%>
 
   <button type='button'>load more</button>
