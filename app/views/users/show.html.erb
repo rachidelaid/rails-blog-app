@@ -1,1 +1,25 @@
-<h1>user page<h1>
+<section class='container'>
+  <div class='user_card'>
+    <img src="<%= @user.photo %>" alt='User Avatar' />
+
+    <div class='user_details'>
+      <h1><%= @user.name %></h1>
+      <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+
+  <div class='bio'>
+    <h3>Bio:</3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  <% @user.three_recent_post(@user.id).each do |post| %>
+    <div class='post_card'>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
+      <p><%= post.text %></P>
+      <span>Comments: <%= post.comments_counter||0 %>, Likes: <%= post.likes_counter||0 %></span>
+    </div>
+  <%end%>
+
+  <a href="/users/<%= @user.id %>/posts"><button type='button'>see all posts</button></a>
+</section>
