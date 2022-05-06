@@ -73,12 +73,6 @@ form {
   gap: 0.5rem;
 }
 
-.line input[type='submit'],
-.line h3 {
-  width: fit-content;
-  min-width: fit-content;
-}
-
 input,
 textarea {
   background-color: transparent;
@@ -164,6 +158,11 @@ h3 {
 .details h3 p {
   color: var(--main-color);
   font-weight: normal;
+}
+
+.line input[type='submit'],
+.line h3 {
+  width: 180px;
 }
 
 .like {

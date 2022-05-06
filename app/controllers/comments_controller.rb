@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
     if @comment.save
       @comment.comment_count(params[:post_id])
       redirect_to user_post_path(params[:user_id], params[:post_id])
+    else
+      redirect_to user_post_path(params[:user_id])
     end
   end
 
