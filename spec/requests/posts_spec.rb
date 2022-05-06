@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  describe 'GET #index' do
+RSpec.describe 'Posts', type: :request do
+  describe 'GET #posts' do
     before(:each) do
-      get '/'
+      get '/users/999/posts'
     end
 
     it 'GET requests response status was correct' do
@@ -11,7 +11,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'response body includes correct placeholder text' do
-      expect(response.body).to include('a list of users')
+      expect(response.body).to include('list pf posts')
     end
 
     it 'renders a correct template' do
@@ -19,9 +19,9 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET #show' do
+  describe 'GET #post' do
     before(:each) do
-      get '/users/999'
+      get '/users/999/posts/1'
     end
 
     it 'GET requests response status was correct' do
@@ -29,7 +29,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'response body includes correct placeholder text' do
-      expect(response.body).to include('user page')
+      expect(response.body).to include('single post')
     end
 
     it 'renders a correct template' do

@@ -1,0 +1,5 @@
+<%= form_with model: @comment, url: "/users/#{@user.id}/posts/#{@post.id}/comments", scope: :comment  do |form| %>
+  <h3>New Comment</h3>
+  <%= form.text_field :text, placeholder: 'comment...'%>
+  <%= form.submit "Create Comment" %>
+<% end %>

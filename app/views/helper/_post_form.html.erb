@@ -1,0 +1,6 @@
+<%= form_with model: @post, url: user_posts_path(@user.id), scope: :post  do |form| %>
+  <h3>New Post</h3>
+  <%= form.text_field :title, placeholder: 'Post Title'%>
+  <%= form.text_area :text, placeholder: 'Post Content' %>
+  <%= form.submit "Create Post" %>
+<% end %>

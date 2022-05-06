@@ -4,8 +4,8 @@
       <img src="<%= user.photo %>" alt='User Avatar' />
 
       <div class='user_details'>
-        <a href="/users/<%= user.id %>"><h1><%= user.name %></h1></a>
-        <p>Number of posts: <%= user.posts_counter || 0 %></p>
+        <h1><%= link_to user.name, user_path(user.id) %></h1>
+        <p>Number of Posts: <%= user.posts_counter || 0 %></p>
       </div>
     </div>
   <%end%> 

@@ -27,7 +27,8 @@ body {
   padding: 2rem 4rem;
 }
 
-button {
+button:not(.svg),
+input[type='submit'] {
   border: none;
   background-color: var(--main-color);
   color: var(--dark-blue);
@@ -38,18 +39,59 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+button:hover,
+input[type='submit']:hover {
   transform: scale(1.1);
 }
 
-button:active {
+button:hover a,
+input[type='submit']:hover a {
+  color: var(--dark-blue) !important;
+}
+
+button:active,
+input[type='submit']:active {
   transform: scale(0.95);
+}
+
+.new_post {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 img {
   width: 7rem;
   height: 7rem;
   border-radius: 0.5rem 0 0 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.line {
+  width: 100%;
+}
+
+.line form {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input,
+textarea {
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  width: 100%;
 }
 
 h3 {
@@ -96,10 +138,16 @@ h3 {
 
 .post_card,
 .comment_card {
+  position: relative;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--blue);
+}
+
+.comment_card {
+  margin-left: 2rem;
+  width: calc(100% - 2rem);
 }
 
 .post_card span {
@@ -121,4 +169,21 @@ h3 {
 .details h3 p {
   color: var(--main-color);
   font-weight: normal;
+}
+
+.line input[type='submit'],
+.line h3 {
+  width: 180px;
+}
+
+.like {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+
+.svg {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
