@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   has_many :likes
 
   validates :title, presence: true, length: { maximum: 250 }
-  validates :comments_counter, :likes_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :comments_counter, :likes_counter, presence: true,
+                                               numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def update_counter(id)
     counts = Post.where(author_id: id).count
