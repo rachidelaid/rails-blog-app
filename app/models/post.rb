@@ -3,10 +3,14 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  private
+  # private
 
-  def update_counter
-    author.increment(:post_counter)
+  def update_counter(id)
+    puts id
+    counts = Post.where(author_id: id).count
+    user = User.find(id)
+    puts user
+    user.update(posts_counter: counts)
   end
 
   def five_recent_comment(post_id)

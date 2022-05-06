@@ -27,7 +27,8 @@ body {
   padding: 2rem 4rem;
 }
 
-button {
+button,
+input[type='submit'] {
   border: none;
   background-color: var(--main-color);
   color: var(--dark-blue);
@@ -38,11 +39,13 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+button:hover,
+input[type='submit']:hover {
   transform: scale(1.1);
 }
 
-button:active {
+button:active,
+input[type='submit']:active {
   transform: scale(0.95);
 }
 
@@ -118,6 +121,11 @@ h3 {
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid var(--blue);
+}
+
+.comment_card {
+  margin-left: 2rem;
+  width: calc(100% - 2rem);
 }
 
 .post_card span {

@@ -15,15 +15,14 @@
 
   <div>
     <%= render 'helper/post_form' %>
-  </div>
+  </div> 
 
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>
-      <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
+      <h3><%= link_to post.title, user_post_path(@user.id,post.id) %></h3>
       <p><%= post.text %></P>
       <span>Comments: <%= post.comments_counter||0 %>, Likes: <%= post.likes_counter||0 %></span>
     </div>
   <%end%>
-
-  <a href="/users/<%= @user.id %>/posts"><button type='button'>see all posts</button></a>
+  <button type='button'><%= link_to "see all posts", user_posts_path(@user.id) %></button>
 </section>
