@@ -10,6 +10,8 @@
 
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>
+      <% @post = post%>
+      <div class='like'><%= render 'helper/like_form' %></div>
       <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>
       <p><%= post.text %></P>
     </div>

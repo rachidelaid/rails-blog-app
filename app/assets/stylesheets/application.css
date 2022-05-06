@@ -27,7 +27,7 @@ body {
   padding: 2rem 4rem;
 }
 
-button,
+button:not(.svg),
 input[type='submit'] {
   border: none;
   background-color: var(--main-color);
@@ -133,8 +133,9 @@ h3 {
 
 .post_card,
 .comment_card {
+  position: relative;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--blue);
 }
@@ -163,4 +164,16 @@ h3 {
 .details h3 p {
   color: var(--main-color);
   font-weight: normal;
+}
+
+.like {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+
+.svg {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

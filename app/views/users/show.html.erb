@@ -19,6 +19,8 @@
 
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>
+      <% @post = post%>
+      <div class='like'><%= render 'helper/like_form' %></div>
       <h3><%= link_to post.title, user_post_path(@user.id,post.id) %></h3>
       <p><%= post.text %></P>
       <span>Comments: <%= post.comments_counter||0 %>, Likes: <%= post.likes_counter||0 %></span>

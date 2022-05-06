@@ -1,5 +1,6 @@
 <section class='container'>
   <div class='post_card'>
+    <div class='like'><%= render 'helper/like_form' %></div>
     <div class='details'>
       <h3><%= @post.title %> <p>by <%= User.all.find(@post.author_id).name %></p></h3>
       <p>Comments: <%= @post.comments_counter||0 %>, Likes: <%= @post.likes_counter||0 %></p>

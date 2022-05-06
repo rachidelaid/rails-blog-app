@@ -4,10 +4,9 @@ class LikesController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
     @like = current_user.likes.new(
-      user_id: @user.id,
-      post_id: @post.id
+      author_id: params[:user_id],
+      post_id: params[:post_id]
     )
     if @like.save
       @like.like_count(params[:post_id])
