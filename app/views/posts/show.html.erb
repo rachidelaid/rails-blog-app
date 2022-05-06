@@ -6,10 +6,15 @@
     </div>
     <p><%= @post.text %></P>
   </div>
-  <div class='comment_card'>
-    <% Comment.all.where(post_id: @post.id).each do |comment| %>
-      <% user = User.all.find(comment.author_id) %>
-      <p><b><%= user.name %>: </b><%= comment.text %></p>
-    <%end%>
+  <div class='line'>
+    <%= render 'helper/comment_form' %>
   </div>
+  <%if Comment.all.where(post_id: @post.id).length != 0 %>
+    <div class='comment_card'>
+      <% Comment.all.where(post_id: @post.id).each do |comment| %>
+        <% user = User.all.find(comment.author_id) %>
+        <p><b><%= user.name %>: </b><%= comment.text %></p>
+      <%end%>
+    </div>
+  <%end%>
 </section>

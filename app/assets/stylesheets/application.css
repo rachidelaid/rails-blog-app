@@ -63,6 +63,22 @@ form {
   width: 100%;
 }
 
+.line {
+  width: 100%;
+}
+
+.line form {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.line input[type='submit'],
+.line h3 {
+  width: fit-content;
+  min-width: fit-content;
+}
+
 input,
 textarea {
   background-color: transparent;

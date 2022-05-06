@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
+    # @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(
       text: allowed_params[:text],
-      user_id: @user.id,
-      post_id: @post.id
+      author_id: params[:user_id],
+      post_id: params[:post_id]
     )
     if @comment.save
       @comment.comment_count(params[:post_id])

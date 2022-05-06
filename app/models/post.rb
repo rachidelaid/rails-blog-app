@@ -3,13 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  # private
-
   def update_counter(id)
-    puts id
     counts = Post.where(author_id: id).count
     user = User.find(id)
-    puts user
     user.update(posts_counter: counts)
   end
 

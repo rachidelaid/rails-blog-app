@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:user_id])
+    @user = User.find(@post.author_id)
   end
 
   def create
