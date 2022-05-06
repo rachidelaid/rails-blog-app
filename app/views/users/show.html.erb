@@ -13,6 +13,10 @@
     <p><%= @user.bio %></p>
   </div>
 
+  <div>
+    <%= render 'helper/post_form' %>
+  </div>
+
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>
       <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h3><%= post.title %></h3></a>

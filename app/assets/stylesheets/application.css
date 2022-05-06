@@ -52,6 +52,24 @@ img {
   border-radius: 0.5rem 0 0 0.5rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+input,
+textarea {
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
 h3 {
   margin-bottom: 0.5rem;
 }
