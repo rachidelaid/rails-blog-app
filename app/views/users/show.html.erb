@@ -1,4 +1,7 @@
 <section class='container'>
+  <div class='new_post'>
+    <button type='button'><%= link_to "create new post",  new_user_post_path(@user.id) %></button>
+  </div>
   <div class='user_card'>
     <img src="<%= @user.photo %>" alt='User Avatar' />
 
@@ -12,10 +15,6 @@
     <h3>Bio:</3>
     <p><%= @user.bio %></p>
   </div>
-
-  <div>
-    <%= render 'helper/post_form' %>
-  </div> 
 
   <% @user.three_recent_post(@user.id).each do |post| %>
     <div class='post_card'>

@@ -44,9 +44,20 @@ input[type='submit']:hover {
   transform: scale(1.1);
 }
 
+button:hover a,
+input[type='submit']:hover a {
+  color: var(--dark-blue) !important;
+}
+
 button:active,
 input[type='submit']:active {
   transform: scale(0.95);
+}
+
+.new_post {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 img {
