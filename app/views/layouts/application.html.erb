@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <%
+=begin%>
+ <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> 
+<%
+=end%>
+
     <% flash.each do |name, msg| -%>
       <p class="notification"><%= msg %></p>
     <% end -%>
