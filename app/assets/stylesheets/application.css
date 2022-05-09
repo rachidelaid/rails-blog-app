@@ -16,6 +16,10 @@
   --text: #fff;
 }
 
+.links a {
+  text-decoration: underline;
+}
+
 a:hover {
   color: var(--main-color);
 }
@@ -92,6 +96,12 @@ textarea {
   padding: 0.5rem;
   font-size: 0.9rem;
   width: 100%;
+  margin-top: 0.2rem;
+}
+
+input[type='checkbox'] {
+  width: unset;
+  margin: 0;
 }
 
 h3 {
@@ -203,5 +213,26 @@ h3 {
   background-color: #064663;
   z-index: 999;
   opacity: 0.9;
-  animation: cssAnimation 0s 3s forwards;
+  animation: cssAnimation 0s 6s forwards;
+}
+
+.field {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.error_explanation {
+  color: rgb(240, 88, 88);
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-left: 5rem;
+}
+
+.error_explanation h2 {
+  display: none;
 }
