@@ -203,5 +203,5 @@ h3 {
   background-color: #064663;
   z-index: 999;
   opacity: 0.9;
-  animation: cssAnimation 0s 3s forwards;
+  animation: cssAnimation 0s 6s forwards;
 }
