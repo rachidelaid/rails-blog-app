@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
+    p params
     if user.admin?
       can :manage, :all
     else
@@ -14,11 +15,11 @@ class Ability
         comment.author_id == user.id
       end
 
-      can :create, Post do |_post|
+      can :create, Post do |post|
         user.id
       end
 
-      can :create, Comment do |_comment|
+      can :create, Comment do |comment|
         user.id
       end
 
