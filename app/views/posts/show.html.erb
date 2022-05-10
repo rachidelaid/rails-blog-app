@@ -18,6 +18,9 @@
       <% Comment.all.where(post_id: @post.id).each do |comment| %>
         <% user = User.all.find(comment.author_id) %>
         <p><b><%= user.name %>: </b><%= comment.text %></p>
+        <% if can? :destroy, comment %>
+          <%= link_to "Delete Comment", user_post_comment_path(@user, @post, comment), data:{"turbo-method": :delete} %>
+        <% end %>
       <%end%>
     </div>
   <%end%>
