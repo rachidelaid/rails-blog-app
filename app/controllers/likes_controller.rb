@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = current_user.likes.new(
+    @like = Like.new(
       author_id: params[:user_id],
       post_id: params[:post_id]
     )

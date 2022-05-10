@@ -1,6 +1,9 @@
 <section class='container'>
   <div class='post_card'>
-    <div class='like'><%= render 'helper/like_form' %></div>
+    <div class='like'>
+      <%= render 'helper/like_form' %>
+      <%= render 'helper/delete_post' %>
+    </div>
     <div class='details'>
       <h3><%= @post.title %> <p>by <%= User.all.find(@post.author_id).name %></p></h3>
       <p>Comments: <%= @post.comments_counter||0 %>, Likes: <%= @post.likes_counter||0 %></p>
@@ -15,6 +18,9 @@
       <% Comment.all.where(post_id: @post.id).each do |comment| %>
         <% user = User.all.find(comment.author_id) %>
         <p><b><%= user.name %>: </b><%= comment.text %></p>
+        <% if can? :destroy, comment %>
+          <%= link_to "Delete Comment", user_post_comment_path(@user, @post, comment), data:{"turbo-method": :delete} %>
+        <% end %>
       <%end%>
     </div>
   <%end%>

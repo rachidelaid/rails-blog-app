@@ -43,6 +43,12 @@ input[type='submit'] {
   transition: all 0.2s ease-in-out;
 }
 
+.comment_card a {
+  color: rgb(240, 88, 88);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
 button:hover,
 input[type='submit']:hover {
   transform: scale(1.1);
@@ -187,9 +193,12 @@ h3 {
 }
 
 .like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
+  top: 0.2rem;
+  right: 0.2rem;
 }
 
 .svg {
