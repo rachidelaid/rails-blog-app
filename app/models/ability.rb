@@ -15,11 +15,11 @@ class Ability
         comment.author_id == user.id
       end
 
-      can :create, Post do |post|
+      can :create, Post do |_post|
         user.id
       end
 
-      can :create, Comment do |comment|
+      can :create, Comment do |_comment|
         user.id
       end
 

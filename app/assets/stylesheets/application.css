@@ -43,6 +43,12 @@ input[type='submit'] {
   transition: all 0.2s ease-in-out;
 }
 
+.comment_card a {
+  color: rgb(240, 88, 88);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
 button:hover,
 input[type='submit']:hover {
   transform: scale(1.1);
@@ -158,12 +164,6 @@ h3 {
 .comment_card {
   margin-left: 2rem;
   width: calc(100% - 2rem);
-}
-
-.comment_card a {
-  color: rgb(240, 88, 88);
-  text-decoration: underline;
-  font-size: 0.8rem;
 }
 
 .post_card span {
