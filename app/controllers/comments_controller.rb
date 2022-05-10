@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @comment = current_user.comments.new(
       text: allowed_params[:text],

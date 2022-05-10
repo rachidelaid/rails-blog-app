@@ -1,0 +1,3 @@
+<% if can? :destroy, @post%>
+  <%= link_to "delete post", user_post_path(@user, @post), data:{"turbo-method": :delete} %>
+<% end %>
