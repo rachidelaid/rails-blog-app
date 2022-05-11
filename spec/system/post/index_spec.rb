@@ -14,7 +14,7 @@ RSpec.describe 'Users Show', type: :system do
 
     @post.update_counter(@user.id)
 
-    @comment = Comment.create(author_id: @user.id, post_id: @post.id, text:"test comment")
+    @comment = Comment.create(author_id: @user.id, post_id: @post.id, text: 'test comment')
     @comment.comment_count(@post.id)
 
     @like = Like.create(author_id: @user.id, post_id: @post.id)
@@ -47,7 +47,7 @@ RSpec.describe 'Users Show', type: :system do
     click_link('see all posts')
     expect(page).to have_content('test comment')
   end
-  
+
   it 'I can see how many comments a post has.' do
     expect(page).to have_content('Comments: 1')
   end
@@ -55,7 +55,7 @@ RSpec.describe 'Users Show', type: :system do
   it 'I can see how many likes a post has.' do
     expect(page).to have_content('Likes: 1')
   end
-  
+
   it 'I can see a section for pagination if there are more posts than fit on the view.' do
     click_link('see all posts')
     expect(page).to have_content('load more')

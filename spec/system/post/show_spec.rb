@@ -14,8 +14,8 @@ RSpec.describe 'Users Show', type: :system do
 
     @post.update_counter(@user.id)
 
-    @comment = Comment.create(author_id: @user.id, post_id: @post.id, text:"test comment")
-    Comment.create(author_id: @user.id, post_id: @post.id, text:"another comment")
+    @comment = Comment.create(author_id: @user.id, post_id: @post.id, text: 'test comment')
+    Comment.create(author_id: @user.id, post_id: @post.id, text: 'another comment')
     @comment.comment_count(@post.id)
 
     @like = Like.create(author_id: @user.id, post_id: @post.id)
@@ -27,11 +27,11 @@ RSpec.describe 'Users Show', type: :system do
   it 'I can see a post\'s title.' do
     expect(page).to have_content('Capybara Rules')
   end
-  
+
   it 'I can see who wrote the post.' do
     expect(page).to have_content("by #{@user.name}")
   end
-  
+
   it 'I can see how many comments a post has.' do
     expect(page).to have_content('Comments: 2')
   end
@@ -39,11 +39,11 @@ RSpec.describe 'Users Show', type: :system do
   it 'I can see how many likes a post has.' do
     expect(page).to have_content('Likes: 1')
   end
-  
+
   it 'I can see the post body.' do
     expect(page).to have_content('It\'s exciting!')
   end
-  
+
   it 'I can see the username of each commentor.' do
     expect(page).to have_content("#{@user.name}: #{@comment.text}")
   end
