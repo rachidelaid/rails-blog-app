@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :authorize_request
-  
+
   def index
     json_response({ msg: 'welcome to our API' }, 400)
   end
