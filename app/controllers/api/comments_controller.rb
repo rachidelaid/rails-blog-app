@@ -12,7 +12,11 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create!(comment_params)
+    @comment = Comment.create(
+      text: comment_params[:text],
+      author_id: params[:user_id],
+      post_id: params[:post_id]
+    )
 
     json_response(@comment, :created)
   end
@@ -20,6 +24,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :author_id, :post_id)
+    params.require(:comment).permit(:text)
   end
 end
