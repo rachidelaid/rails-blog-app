@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     @posts = Post.where(author_id: params[:user_id])
 
     if @posts.empty?
-      json_response({msg:"no post or user found"}, 400)
+      json_response({ msg: 'no post or user found' }, 400)
     else
       render json: @posts
     end
