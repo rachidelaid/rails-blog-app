@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/users', type: :request do
-  path '/' do
+  path '/api/users' do
     get('list users') do
       parameter name: 'Auth', in: :header, type: :string, required: true
       response(200, 'successful') do
@@ -17,7 +17,7 @@ RSpec.describe 'api/users', type: :request do
     end
   end
 
-  path '/{id}' do
+  path '/api/users/{id}' do
     # You'll want to customize the parameter types...
     parameter name: 'Auth', in: :header, type: :string, required: true
     parameter name: 'id', in: :path, type: :string, description: 'id'

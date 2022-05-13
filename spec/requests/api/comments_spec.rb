@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/comments', type: :request do
-  path '/{user_id}/posts/{post_id}/comments' do
+  path '/api/users/{user_id}/posts/{post_id}/comments' do
     # You'll want to customize the parameter types...
     parameter name: 'Auth', in: :header, type: :string, required: true
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
