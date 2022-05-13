@@ -1,8 +1,9 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/posts', type: :request do
-  path '/api/users/{user_id}/posts' do
+  path '/{user_id}/posts' do
     # You'll want to customize the parameter types...
+    parameter name: 'Auth', in: :header, type: :string, required: true
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
     get('list posts') do

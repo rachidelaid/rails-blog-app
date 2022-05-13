@@ -6,6 +6,11 @@ info:
 paths:
   "/api/users/{user_id}/posts/{post_id}/comments":
     parameters:
+    - name: Auth
+      in: header
+      required: true
+      schema:
+        type: string
     - name: user_id
       in: path
       description: user_id
@@ -25,11 +30,27 @@ paths:
           description: successful
     post:
       summary: create comment
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
   "/api/users/{user_id}/posts":
     parameters:
+    - name: Auth
+      in: header
+      required: true
+      schema:
+        type: string
     - name: user_id
       in: path
       description: user_id
@@ -47,13 +68,19 @@ paths:
       parameters:
       - name: Auth
         in: header
+        required: true
         schema:
           type: string
       responses:
-        '400':
+        '200':
           description: successful
   "/api/users/{id}":
     parameters:
+    - name: Auth
+      in: header
+      required: true
+      schema:
+        type: string
     - name: id
       in: path
       description: id
