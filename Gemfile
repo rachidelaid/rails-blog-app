@@ -53,6 +53,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -79,3 +80,5 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'cancancan'
 gem 'devise'
 gem 'jwt'
+gem 'rswag-api'
+gem 'rswag-ui'
